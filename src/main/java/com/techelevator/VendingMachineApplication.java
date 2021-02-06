@@ -1,19 +1,30 @@
 package com.techelevator;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class VendingMachineApplication {
+//	static Scanner userInput = new Scanner(System.in);
+
+
+	public static void main(String[] args) throws FileNotFoundException {
 	
-
-
-	public static void main(String[] args) {
 		
 		//Turn on
 		
 		//Restock method - stocks all items at quantity 5
 		
 		//***DISPLAY*** Main Menu
+		Display main = new Display();
+		main.displayMainMenu();
 		
+		
+	}
+
 		//Take customer input
 		
 			//display next screen based on customer input
@@ -31,6 +42,7 @@ public class VendingMachineApplication {
 											//each $ insert prints line in log.txt file
 										//returns to Purchase Menu - displays Balance to user
 								//(2) Select Product
+										//***DISPLAY*** Vending Machine Items screen
 										//takes input from customer
 											//matches "key" on map to product, gets price
 												//if key does not exist, 
@@ -41,16 +53,15 @@ public class VendingMachineApplication {
 		
 												//if key does exist and is stocked
 													//subtract price from remaining balance
+														//if balance negative, do not dispense, return message "You do not have enough money, please insert more money or exit."
 													//dispense product
 														//print product name, price, remaining balance, yumyumMessage
 														//add item and remaining balance to log.txt
-													
+													//subtract from item quantity
 													//return customer to Purchase Menu
 								//(3) Finish Transaction
 										//add GIVE CHANGE w/ amount of change to log.txt
-										//calculate change in dollars
-										//calculate change in coins
-										//print message saying change
+										//calculate change in dollars & coins & print ---> CashRegister.getCustomerCurrencyChange	
 										//update currentBalance to 0
 										//return to Main Menu
 					//3 Exit
@@ -67,5 +78,5 @@ public class VendingMachineApplication {
 		
 
 	
-	}
+	
 }

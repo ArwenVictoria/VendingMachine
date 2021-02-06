@@ -12,7 +12,7 @@ public class CashRegister {
 	private BigDecimal twoDollar = new BigDecimal("2.00");
 	private BigDecimal fiveDollar = new BigDecimal("5.00");
 	private BigDecimal tenDollar = new BigDecimal("10.00");
-	private BigDecimal customerBalance = new BigDecimal("0");
+	private BigDecimal customerBalance = new BigDecimal("0.00");
 	private String customerCurrencyChange;
 	private String customerChangeTotal;
 	
@@ -52,27 +52,28 @@ public class CashRegister {
 		return customerBalance;
 	}
 	
-	public BigDecimal setCustomerBalance() {
+	public void setCustomerBalance() {
 		
-		Scanner userInput = new Scanner(System.in);
-		System.out.println("Please enter dollar bills");
-		System.out.println("(Example: 1 2 5 10" );
-		String dollarInput = userInput.nextLine();
+		@SuppressWarnings("resource")
+		Scanner moneyFeed = new Scanner(System.in);
+		System.out.println("Please enter dollar bills ($1, $2, $5, $10 accepted).");
+		System.out.println("(Example: 1 2 5 10)");
+		String dollarInput = moneyFeed.nextLine();
 		String[] dollarInputArray = dollarInput.split(",");
 		
 		for (int i = 0; i < dollarInputArray.length; i++) {
 		
-			if (dollarInput.equals("1")) {
+			if (dollarInputArray[i].equals("1")) {
 			customerBalance = customerBalance.add(oneDollar);
-			} else if (dollarInput.equals("2")) {
+			} else if (dollarInputArray[i].equals("2")) {
 			customerBalance = customerBalance.add(twoDollar);
-			} else if (dollarInput.equals("5")) {
+			} else if (dollarInputArray[i].equals("5")) {
 			customerBalance = customerBalance.add(fiveDollar);
-			} else if (dollarInput.equals("10")) {
+			} else if (dollarInputArray[i].equals("10")) {
 				customerBalance = customerBalance.add(tenDollar);
 				}
 		
-			} return customerBalance;
+			} this.customerBalance = customerBalance;
 	}
 
 	

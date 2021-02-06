@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,28 +9,32 @@ import java.util.Scanner;
 
 public class Inventory {
 
+
+	public Map<String, Product> productsByCode = new HashMap<>();
+
 	
-	public Map<String, String> productsByCode = new HashMap<>();
 	
-	
-	public Map<String, String> setProductList() {
+	public Map<String, Product> setProductList() throws FileNotFoundException {
 		File inventoryFile = new File("vendingmachine.csv");
 			
 		try(Scanner inventoryScanner = new Scanner(inventoryFile)) {
 				while(inventoryScanner.hasNextLine()) {
 					String line = inventoryScanner.nextLine(); //A1|Potato Crisps|3.05|Chip
-					String productParts = line.replaceAll("\\|", " "); //A1, Potato, 3.05 , Chip
-					String productKey = productParts.substring(0, 3);
-					String productString = productParts.substring(3);
-					productsByCode.put(productKey, productString);              
+					Product productSelected = new Product(line);
+//					String productParts = line.replaceAll("\\|", " "); //A1, Potato, 3.05 , Chip
+					String productKey = productSelected.getCode();
+//					String productString = productParts.substring(3);
+					productsByCode.put(productKey, productSelected);              
 				}
 				return productsByCode;
 			}
 	}	
 	
-	public String getProductString(String code) {
+	public Product getProductString(String code) {
 		return productsByCode.get(code);
 	}
+	
+
 	
 //	A1|Potato Crisps|3.05|Chip
 //	A2|Stackers|1.45|Chip
