@@ -31,9 +31,14 @@ public class Product {
 	public String getType() {
 		return type;
 	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public void decrementQuantity() {
+		quantity--;
+	}
 
 
-   //if item is selected, then reduce quantity
 	
 	public String setQuantity() {
 		if(quantity == 0) {
@@ -41,9 +46,8 @@ public class Product {
 		} else {
 			return ""+quantity+"";
 		
-	}
+	}	
 	
-	
-}
+   }
 }
 
