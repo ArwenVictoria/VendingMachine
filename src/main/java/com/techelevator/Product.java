@@ -1,23 +1,28 @@
 package com.techelevator;
 
+
+
 public class Product {
 	
-	private String position;
+	private String code; //do we need to get code?
 	private String name;
-	private String price;   //BigDecimal
-	private int quantity;
+	private String price;   //BigDecimal?
 	private String type;
+	private int quantity = 5;
+
 	
-	public Product(String position, String name, String price, int quantity, String type) {
-		this.position = position;
-		this.name = name;
-		this.price = price;
-		this.quantity = quantity;
-		this.type = type;
-		
+	public Product(String line) {
+		if((line != null) && (!line.isEmpty())) {
+			String[] productParts = line.split("\\|"); //code, name, price , type
+			this.code = productParts[0];
+			this.name = productParts[1];
+			this.price = productParts[2];
+			this.type = productParts[3];
+		}	
 	}
-	public String getPosition() {
-		return position;
+		
+	public String getCode() {
+		return code;
 	}
 	public String getName() {
 		return name;
@@ -25,11 +30,16 @@ public class Product {
 	public String getPrice() {
 		return price;
 	}
-	public int getQuantity() {
-		return quantity;
+	public String getQuantity() {
+		if (quantity == 0) {
+			 return "SOLD OUT";
+			}
+			return String.valueOf(quantity);
 	}
+
 	public String getType() {
 		return type;
+		
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
@@ -38,16 +48,4 @@ public class Product {
 		quantity--;
 	}
 
-
-	
-	public String setQuantity() {
-		if(quantity == 0) {
-		return "SOLD OUT";
-		} else {
-			return ""+quantity+"";
-		
-	}	
-	
-   }
 }
-
