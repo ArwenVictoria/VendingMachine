@@ -4,16 +4,16 @@ import java.math.BigDecimal;
 
 public class Product {
 	
-	private String code; //do we need to get code?
+	private String code; 
 	private String name;
-	private BigDecimal price;   //BigDecimal?
+	public BigDecimal price;   
 	private String type;
 	public int quantity = 5;
 
 	
 	public Product(String line) {
 		if((line != null) && (!line.isEmpty())) {
-			String[] productParts = line.split("\\|"); //code, name, price , type
+			String[] productParts = line.split("\\|");
 			this.code = productParts[0];
 			this.name = productParts[1];
 			this.price = new BigDecimal(productParts[2]);
@@ -42,11 +42,6 @@ public class Product {
 		
 	}
 
-   //if item is selected, then reduce quantity
-//	public void setQuantity(int quantity) {
-//		this.quantity = quantity;
-//	}
-	
 	public int decrementQuantity() {
 		return quantity--;
 	}
@@ -63,17 +58,7 @@ public class Product {
 		}
 		return " Yum! ";
 	}
-//	public Product getProductString(String code) {
-//	
-//		return productsByCode.get(code);
-//	}
 
-//	public void dispenseProduct() {
-//		
-//	
-//		System.out.println("dispense product");
-//		
-//	}
+
 }
-
 
