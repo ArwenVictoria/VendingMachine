@@ -1,6 +1,6 @@
 package com.techelevator;
 
-import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -19,31 +19,30 @@ public class VendingMachineApplication {
 		//Restock method - stocks all items at quantity 5
 		
 		//***DISPLAY*** Main Menu
-		Display main = new Display();
+		DisplayPlay main = new DisplayPlay();
 		main.displayMainMenu();
-		
 		
 	}
 
-		//Take customer input
+		//Take customer input√
 		
-			//display next screen based on customer input
-			//prompt customer based on input/display
+			//display next screen based on customer input√
+			//prompt customer based on input/display√
 		
 		
-					//(1) ***DISPLAY*** Vending Machine Items - include positionKey, item name, price, quantity
-						//sysout item display
-						//return to main menu option
+					//(1) ***DISPLAY*** Vending Machine Items - include positionKey, item name, price, quantity√
+						//sysout item display√
+						//return to main menu option√
 		
 					//(2)***DISPLAY*** Purchase -guide through purchase process
-						// Display includes: (1)Feed Money, (2) Select Product, (3) Finish Transaction
-								//(1) Feed Money
-										//takeMoney (CashRegister method - returns customerBalance
+						// Display includes: (1)Feed Money, (2) Select Product, (3) Finish Transaction√
+								//(1) Feed Money√
+										//takeMoney (CashRegister method - returns customerBalance√
 											//each $ insert prints line in log.txt file
-										//returns to Purchase Menu - displays Balance to user
+										//returns to Purchase Menu - displays Balance to user√
 								//(2) Select Product
 										//***DISPLAY*** Vending Machine Items screen
-										//takes input from customer
+										//takes input from customer√
 											//matches "key" on map to product, gets price
 												//if key does not exist, 
 													//inform customer, return to purchase menu

@@ -12,7 +12,7 @@ public class CashRegister {
 	private BigDecimal twoDollar = new BigDecimal("2.00");
 	private BigDecimal fiveDollar = new BigDecimal("5.00");
 	private BigDecimal tenDollar = new BigDecimal("10.00");
-	private BigDecimal customerBalance = new BigDecimal("0.00");
+	public BigDecimal customerBalance = new BigDecimal("0.00");
 	private String customerCurrencyChange;
 	private String customerChangeTotal;
 	
@@ -44,10 +44,6 @@ public class CashRegister {
 		return tenDollar;
 	}
 
-	public BigDecimal getTwentyDollar() {
-		return twentyDollar;
-	}
-
 	public BigDecimal getCustomerBalance() {
 		return customerBalance;
 	}
@@ -58,22 +54,24 @@ public class CashRegister {
 		Scanner moneyFeed = new Scanner(System.in);
 		System.out.println("Please enter dollar bills ($1, $2, $5, $10 accepted).");
 		System.out.println("(Example: 1 2 5 10)");
-		String dollarInput = moneyFeed.nextLine();
-		String[] dollarInputArray = dollarInput.split(",");
+		String dollarInput = moneyFeed.nextLine();  
+		String[] dollarInputArray = dollarInput.split(" "); 
 		
+															
 		for (int i = 0; i < dollarInputArray.length; i++) {
 		
 			if (dollarInputArray[i].equals("1")) {
-			customerBalance = customerBalance.add(oneDollar);
+			customerBalance = customerBalance.add(oneDollar); 
 			} else if (dollarInputArray[i].equals("2")) {
 			customerBalance = customerBalance.add(twoDollar);
-			} else if (dollarInputArray[i].equals("5")) {
+			} else if (dollarInputArray[i].equals("5")) {   
 			customerBalance = customerBalance.add(fiveDollar);
 			} else if (dollarInputArray[i].equals("10")) {
 				customerBalance = customerBalance.add(tenDollar);
 				}
 		
-			} this.customerBalance = customerBalance;
+			} 
+
 	}
 
 	
@@ -126,24 +124,31 @@ public class CashRegister {
 			System.out.println(thankYou + "There is no change to return.");
 		}
 	}
+	
+//	public boolean isEnoughMoney() {
+//		if (currentBalance.compareTo(allProducts.productsByCode.get(productSelected)).getPrice() >= 0 ) {
+//			return true;
+//		}
+//		return false;
+//	}
 
 
-	public String notEnoughMoney(boolean isEnough) {
-		if (customerBalance.compareTo(Product.getPrice()) > 0) {
-			
-		}
-			
-		
-		return "You do not have enough money for item selected.";
-	}
+//	public String notEnoughMoney(boolean isEnough) {
+//		if (customerBalance.compareTo(productSelected.getPrice()) > 0) {
+//			
+//		}
+//			
+//		
+//		return "You do not have enough money for item selected.";
+//	}
+//	
 	
-	
-	public BigDecimal resetBalanceToZero() {
-		customerBalance = 0;
-		return customerBalance;
-		
-	}
-	
+//	public BigDecimal resetBalanceToZero() {
+//		customerBalance = BigDecimal("0.00");
+//		return customerBalance;
+//		
+//	}
+//	
 	
 	
 	

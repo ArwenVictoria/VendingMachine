@@ -3,7 +3,6 @@ package com.techelevator;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -14,7 +13,7 @@ public class Inventory {
 
 	
 	
-	public Map<String, Product> setProductList() throws FileNotFoundException {
+	public void setProductList() throws FileNotFoundException {
 		File inventoryFile = new File("vendingmachine.csv");
 			
 		try(Scanner inventoryScanner = new Scanner(inventoryFile)) {
@@ -26,7 +25,7 @@ public class Inventory {
 //					String productString = productParts.substring(3);
 					productsByCode.put(productKey, productSelected);              
 				}
-				return productsByCode;
+//				return productsByCode;
 			}
 	}	
 	

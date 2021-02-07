@@ -1,14 +1,14 @@
 package com.techelevator;
 
-
+import java.math.BigDecimal;
 
 public class Product {
 	
 	private String code; //do we need to get code?
 	private String name;
-	private String price;   //BigDecimal?
+	private BigDecimal price;   //BigDecimal?
 	private String type;
-	private int quantity = 5;
+	public int quantity = 5;
 
 	
 	public Product(String line) {
@@ -16,7 +16,7 @@ public class Product {
 			String[] productParts = line.split("\\|"); //code, name, price , type
 			this.code = productParts[0];
 			this.name = productParts[1];
-			this.price = productParts[2];
+			this.price = new BigDecimal(productParts[2]);
 			this.type = productParts[3];
 		}	
 	}
@@ -27,7 +27,7 @@ public class Product {
 	public String getName() {
 		return name;
 	}
-	public String getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 	public String getQuantity() {
@@ -43,14 +43,37 @@ public class Product {
 	}
 
    //if item is selected, then reduce quantity
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-	public void decrementQuantity() {
-		quantity--;
-	}
-
+//	public void setQuantity(int quantity) {
+//		this.quantity = quantity;
+//	}
 	
+	public int decrementQuantity() {
+		return quantity--;
+	}
+	
+	public String yumMessage(String type) {
+		if (type.equals("Chip")) {
+			return " Crunch Crunch, Yum! ";
+		} else if (type.equals("Candy")) {
+			return " Munch Munch, Yum! ";
+		} else if (type.equals("Drink")) {
+			return " Glug Glug, Yum! ";
+		} else if (type.equals("Gum")) {
+			return " Chew Chew, Yum! ";
+		}
+		return " Yum! ";
+	}
+//	public Product getProductString(String code) {
+//	
+//		return productsByCode.get(code);
+//	}
+
+//	public void dispenseProduct() {
+//		
+//	
+//		System.out.println("dispense product");
+//		
+//	}
 }
 
 
