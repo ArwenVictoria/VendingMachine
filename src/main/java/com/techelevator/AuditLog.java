@@ -8,22 +8,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class AuditLog {
-	
-	private String date;
-	private String time;
-	public String productPurchased = "" + date + " " + time + " ";
-	public String changeReturned = "" + date + " " + time + " CHANGE RETURNED: ";
+
 	
 	public AuditLog()  {
 
-	}
-		
-	public String getDate() {
-		return date;
-	}
-	
-	public String getTime() {
-		return time;
 	}
 	
 	public void writeToLog(String auditLine) throws IOException {
