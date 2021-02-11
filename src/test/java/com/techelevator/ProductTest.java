@@ -15,25 +15,25 @@ public class ProductTest {
 	@Test
 	public void product__returns_correct_code() {
 		//arrange
-		Product productTest = new Product("A1");
+		Product productTest = new Product("A1|Potato Crisps|3.05|Chip");
 		Assert.assertEquals("A1", productTest.getCode());
 	}
 	@Test	
 	public void product_name_correctly_identified() {
 		
-		Product productTest = new Product("Potato Crisps");
+		Product productTest = new Product("A1|Potato Crisps|3.05|Chip");
 		Assert.assertEquals("Potato Crisps", productTest.getName());
 	}
 	@Test
 	public void product_price_displays_correctly() {
 		
-		Product productTest = new Product ("3.05");
+		Product productTest = new Product("A1|Potato Crisps|3.05|Chip");
 		Assert.assertEquals("3.05", productTest.getPrice());
 	}
 	@Test
 	public void product_quantity_sets_correctly() {
 		
-		Product productTest = new Product ("5");
+		Product productTest = new Product
 		Assert.assertEquals("5", productTest.getQuantity());
 	}
 	@Test
