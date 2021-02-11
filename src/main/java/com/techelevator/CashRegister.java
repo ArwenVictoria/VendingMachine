@@ -74,7 +74,7 @@ public class CashRegister {
 					if (customerBalance.compareTo(BigDecimal.valueOf(0)) == 0) {
 					String toQuarterChange = " Your change is " + dollarCount + " dollar(s), " + quarterCount + " quarter(s)"; 
 					System.out.println(thankYou + toQuarterChange);
-					} 
+					} else {
 		
 					BigDecimal dimes = customerBalance.divide(dime);
 					dimeCount = dimes.intValue();
@@ -84,7 +84,7 @@ public class CashRegister {
 						System.out.println(thankYou + toDimeChange);
 							} else {
 		
-								//check for nickels
+								
 								BigDecimal nickels = customerBalance.divide(nickel);
 								nickelCount = nickels.intValue();
 								customerBalance = customerBalance.subtract(nickel.multiply(BigDecimal.valueOf(nickelCount)));
@@ -97,5 +97,5 @@ public class CashRegister {
 		}
 	}
 	
-	
+	}	
 }
